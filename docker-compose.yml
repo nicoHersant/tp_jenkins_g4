@@ -1,0 +1,13 @@
+database:
+  build: docker-config
+  dockerfile: ${PWD}/docker-config/Dockerfiles/mysql-dockerfile
+  ports:
+    - "3306:3306"
+    
+node_server:
+  build: .
+  dockerfile: ${PWD}/docker-config/Dockerfiles/node-dockerfile
+  ports:
+    - "3000:3000"
+  links:
+    - database:database  

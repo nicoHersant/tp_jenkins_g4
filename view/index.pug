@@ -1,0 +1,36 @@
+
+html
+  head
+    script(src='//code.jquery.com/jquery-3.2.1.min.js')
+    script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js')
+    script(src='./public/ajax.js')
+    link(href='//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css', rel='stylesheet')
+    link(href='//fonts.googleapis.com/css?family=Oswald', rel="stylesheet")
+    title A3dev-Jenkins-G4
+
+  body
+    .container
+      h1.title!= message
+      <hr/>
+      h3!= info
+
+    .container
+      h1.title Liste des livraisons
+      <hr/>
+      h3 Choisissez un livreur :
+      select
+
+          
+
+      .jumbotron
+        #dllbut
+        table#restable.table.table-hover
+          thead
+            tr
+              th Prénom
+              th Nom
+              th Activité
+              th Courriel
+              th Téléphone
+              th Date d'inscription
+          tbody#tabody

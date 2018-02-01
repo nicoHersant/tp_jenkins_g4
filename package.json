@@ -1,0 +1,35 @@
+{
+  "name": "just-api",
+  "version": "0.0.1",
+  "description": "Sujet 3",
+  "main": "index.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com:MarieLBernard44/just_api.git"
+  },
+  "keywords": [
+    "api",
+    "express",
+    "node",
+    "js"
+  ],
+  "author": "Nous",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/MarieLBernard44/just_api/issues"
+  },
+  "homepage": "https://github.com/MarieLBernard44/just_api#readme",
+  "dependencies": {
+    "bluebird": "^3.5.1",
+    "body-parser": "^1.18.2",
+    "cookie-parser": "^1.4.3",
+    "express": "^4.16.2",
+    "json2csv": "^3.11.5",
+    "jsonwebtoken": "^8.1.0",
+    "mysql": "^2.15.0",
+    "pug": "^2.0.0-rc.4"
+  }
+}

@@ -1,0 +1,8 @@
+FROM mysql
+
+ENV MYSQL_ROOT_PASSWORD root  
+ENV MYSQL_DATABASE just_api  
+ENV MYSQL_USER imie  
+ENV MYSQL_PASSWORD passe
+
+ADD DB/dump.sql /docker-entrypoint-initdb.d
