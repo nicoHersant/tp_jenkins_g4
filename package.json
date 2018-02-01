@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com:MarieLBernard44/just_api.git"
+    "url": "git+ssh://git@github.com:/nicoHersant/tp_jenkins_g4.git"
   },
   "keywords": [
     "api",
@@ -25,7 +25,6 @@
   "dependencies": {
     "bluebird": "^3.5.1",
     "body-parser": "^1.18.2",
-    "cookie-parser": "^1.4.3",
     "express": "^4.16.2",
     "mysql": "^2.15.0",
     "pug": "^2.0.0-rc.4"

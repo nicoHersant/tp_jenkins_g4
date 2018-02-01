@@ -37,10 +37,12 @@ cd tp_jenkins_g4
 npm i
 ```
 Configuration de la base de données (db-config.js)
-``` const db  = mysql.createPool({
-  ...
-  host     : 'database',
-  ...
+```
+const db  = mysql.createPool({
+  host     : 'host',
+  user     : 'user',
+  password : 'password',
+  database : 'database'
 });
 ```
 Copier le fichier ```dump.sql``` fourni par e-mail, dans le répertoire ```tp_jenkins_g4/docker-config/DB```.
@@ -69,16 +71,19 @@ Ci dessous, les routes de l’application web :
 | VERBES      | URL                     | ACTION                                                                |
 |-------------|-------------------------|-----------------------------------------------------------------------|
 | GET         |    /                    | Affiche l’interface de l’application web.                             |
-| GET         |    /new                 | Permet l'enregistrement d'une livraison                            |
+| GET         |    /new                 | Permet l'enregistrement d'une livraison (paramètres obligatoires)     |
 
+## Attention, les requêtes http d'enregistrement doivent être au format suivant :
+```
+http://localhost:3000/pi/v1/new?firstname=john&lastname=snow&package=2&createdAt=886375680000
+```
 
 Ci dessous, les url utilisées par notre API
 
 | VERBES      | URL                     | ACTION                                                                |
 |-------------|-------------------------|-----------------------------------------------------------------------|
-| GET         |    /api/v1              | Renvoie l’ensemble des profils.                             |
-| GET         |    /api/v1/:activity    | Renvoie les profils filtrés par secteur d’activité.|
-| POST        |    /api/v1/authenticate | Génère le token d’authentification si le nom d’utilisateur et le mot de passe renseignés sont valides.              |
+| GET         |    /api/v1/name         | Renvoie l’ensemble des nom des livreurs.                              |
+| GET         |    /api/v1/delivery     | Renvoie les livraisons filtrées par livreurs.                         |
 
 
 # Déploiement

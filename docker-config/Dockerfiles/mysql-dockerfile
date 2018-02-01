@@ -1,8 +1,8 @@
 FROM mysql
 
-ENV MYSQL_ROOT_PASSWORD root  
-ENV MYSQL_DATABASE just_api  
-ENV MYSQL_USER imie  
-ENV MYSQL_PASSWORD passe
+ENV MYSQL_ROOT_PASSWORD root
+ENV MYSQL_DATABASE api_jenkins  
+ENV MYSQL_USER jenkins_user
+ENV MYSQL_PASSWORD VlR1d1oiqrccMxid
 
 ADD DB/dump.sql /docker-entrypoint-initdb.d
