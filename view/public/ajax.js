@@ -45,16 +45,22 @@ function getDelivery(name){
         show(result)
     })
 }
-
+// affiche la moyenne de livraison du livreur selectionné
 function show(info){
   var name = info[0]+ " " + info[1];
   info = info.slice(2)
   var nb = info.length;
-  var sec = info[nb-1]-info[0]
-  var time = sec/60000
-  var result = Math.round(time/nb)
+  var millisec = info[nb-1]-info[0]
+  var min = millisec/60000
+  var result = Math.round(min/nb)
+  console.log(info)
   $("#result").empty();
-  $("#result").append("Le livreur " + name + " livre un coli toutes les "+ result +" minutes.")
+  if(info.length==0){
+    $("#result").append("Votre livreur n'a effectué aucune livraison.")
+  }else{
+    $("#result").append("Le livreur " + name + " livre un coli toutes les "+ result +" minutes.")
+  }
+
 }
 $( document ).ready(function() {
     $( "#deliveryboylist" ).change( function() {
