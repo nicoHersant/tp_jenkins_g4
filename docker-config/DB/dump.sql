@@ -51,7 +51,7 @@ INSERT INTO `livraison` (`ID`, `firstname`, `lastname`, `package`, `createdAt`) 
 (10, 'Antoine', 'Bohssain', '1', '2014-03-30 00:05:00'),
 (11, 'Clem', 'Tournery', '1', '2017-07-18 00:09:00'),
 (12, 'Clem', 'Tournery', '1', '2016-06-11 00:07:00'),
-(13, 'Loic', 'Arif', 'Batiment', '1', '2015-03-15 00:08:00'),
+(13, 'Loic', 'Arif', '1', '2015-03-15 00:08:00'),
 
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
