@@ -1,4 +1,4 @@
-# API - procédure d'installation simple (sans Docker)
+# API - procédure d'installation
 
 Prérequis :
 - NodeJS
@@ -7,8 +7,8 @@ Prérequis :
 Installation :
 
 ```bash
-git clone https://github.com/MarieLBernard44/just_api.git
-cd just_api
+git clone https://github.com/nicoHersant/tp_jenkins_g4/
+cd tp_jenkins_g4
 npm i
 ```
 Mise en place de la base de données:
@@ -26,14 +26,14 @@ Accès à l'API sur l'url : `http://localhost:3000`
 # Application conteneurisée avec docker - procédure d'installation
 
 Prérequis :
-- docker 
+- docker
 - docker-compose
 
-Clonage du repository 
+Clonage du repository
 
 ```bash
-git clone https://github.com/MarieLBernard44/just_api.git
-cd just_api
+git clone https://github.com/nicoHersant/tp_jenkins_g4/
+cd tp_jenkins_g4
 npm i
 ```
 Configuration de la base de données (db-config.js)
@@ -43,19 +43,19 @@ Configuration de la base de données (db-config.js)
   ...
 });
 ```
-Copier le fichier ```dump.sql``` fourni par e-mail, dans le répertoire ```just_api/docker-config/DB```.
+Copier le fichier ```dump.sql``` fourni par e-mail, dans le répertoire ```tp_jenkins_g4/docker-config/DB```.
 Ce dossier est destiné aux futures migrations de la base de données.
 
-Le port ouvert sur la machine hôte est le port 3000 et le port du serveur node JS exposé sur le conteneur est le 3000 
+Le port ouvert sur la machine hôte est le port 3000 et le port du serveur node JS exposé sur le conteneur est le 3000
 
 ```bash
-docker-compose build 
+docker-compose build
 ```
 
-Lancement de l'application en mode démon 
+Lancement de l'application en mode démon
 
 ```bash
-docker-compose up  -d 
+docker-compose up  -d
 ```
 
 Accès via le navigateur
