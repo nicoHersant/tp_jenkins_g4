@@ -38,7 +38,7 @@ CREATE TABLE IF NOT EXISTS `deliveryboy` (
 INSERT INTO `deliveryboy` (`ID`, `firstname`, `lastname`) VALUES
 (1, 'Loic', 'Arif'),
 (2, 'Clem', 'Tournery'),
-(3, 'Antoine', "Bohssain"),
+(3, 'Antoine', 'Bohssain'),
 (4, 'Silvano', 'Costanzo'),
 (5, 'Pierre', 'LePage'),
 (6, 'Dylan', 'Gosselin'),
@@ -54,9 +54,9 @@ CREATE TABLE IF NOT EXISTS `delivery` (
   PRIMARY KEY (`ID`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=11 ;
 --
--- Contenu de la table `livraison`
+-- Contenu de la table `delivery`
 --
-INSERT INTO `livraison` (`ID`, `deliveryboy`, `package`, `createdAt`) VALUES
+INSERT INTO `delivery` (`ID`, `deliveryboy`, `package`, `createdAt`) VALUES
 (1, '1', '2', '2017-07-18 00:38:00'),
 (2, '2', '1', '2016-06-11 00:36:00'),
 (3, '1', '1', '2015-03-15 00:42:00'),
