@@ -24,36 +24,62 @@ USE `api_jenkins`;
 -- --------------------------------------------------------
 
 --
--- Structure de la table `livraison`
+-- Structure de la table `deliveryboy`
 --
-CREATE TABLE IF NOT EXISTS `livraison` (
+CREATE TABLE IF NOT EXISTS `deliveryboy` (
   `ID` int(11) NOT NULL AUTO_INCREMENT,
   `firstname` varchar(200) NOT NULL,
   `lastname` varchar(200) NOT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=11 ;
+--
+-- Contenu de la table `deliveryboy`
+--
+INSERT INTO `deliveryboy` (`ID`, `firstname`, `lastname`) VALUES
+(1, 'Loic', 'Arif'),
+(2, 'Clem', 'Tournery'),
+(3, '3'),
+(4, 'Silvano', 'Costanzo'),
+(5, 'Pierre', 'LePage'),
+(6, 'Dylan', 'Gosselin'),
+(13, 'Nico', 'Hersant');
+--
+-- Structure de la table `delivery`
+--
+CREATE TABLE IF NOT EXISTS `delivery` (
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `deliveryboy` int(11) NOT NULL,
   `package` int(15) NOT NULL,
   `createdAt` datetime NOT NULL,
   PRIMARY KEY (`ID`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=11 ;
-
 --
 -- Contenu de la table `livraison`
 --
-INSERT INTO `livraison` (`ID`, `firstname`, `lastname`, `package`, `createdAt`) VALUES
-(1, 'Loic', 'Arif', '1', '2017-07-18 00:38:00'),
-(2, 'Clem', 'Tournery', '1', '2016-06-11 00:36:00'),
-(3, 'Loic', 'Arif', '1', '2015-03-15 00:42:00'),
-(4, 'Antoine', 'Bohssain', '1', '1998-02-02 00:28:00'),
-(5, 'Antoine', 'Bohssain', '1', '2010-05-30 00:01:00'),
-(6, 'Silvano', 'Costanzo', '1', '2000-01-25 00:12:00'),
-(7, 'Silvano', 'Costanzo', '1', '1999-02-06 00:06:00'),
-(8, 'Dylan', 'Gosselin', '1', '2015-08-01 00:04:00'),
-(9, 'Dylan', 'Gosselin', '1', '1995-02-18 01:00:00'),
-(10, 'Antoine', 'Bohssain', '1', '2014-03-30 00:05:00'),
-(11, 'Clem', 'Tournery', '1', '2017-07-18 00:09:00'),
-(12, 'Clem', 'Tournery', '1', '2016-06-11 00:07:00'),
-(13, 'Loic', 'Arif', '1', '2015-03-15 00:08:00');
+INSERT INTO `livraison` (`ID`, `deliveryboy`, `package`, `createdAt`) VALUES
+(1, '1', '2', '2017-07-18 00:38:00'),
+(2, '2', '1', '2016-06-11 00:36:00'),
+(3, '1', '1', '2015-03-15 00:42:00'),
+(4, '3', '1', '1998-02-02 00:28:00'),
+(5, '3', '1', '2010-05-30 00:01:00'),
+(6, '4', '1', '2000-01-25 00:12:00'),
+(7, '4', '3', '1999-02-06 00:06:00'),
+(8, '6', '1', '2015-08-01 00:04:00'),
+(9, '6', '1', '1995-02-18 01:00:00'),
+(10, '3', '2', '2014-03-30 00:05:00'),
+(11, '2', '1', '2017-07-18 00:09:00'),
+(12, '2', '1', '2016-06-11 00:07:00'),
+(13, '1', '1', '2015-03-15 00:08:00');
 
-
+--
+-- création d'un utilisateur pour la table `livraison`
+--
+/*
+GRANT USAGE ON *.* TO "jenkins_user"@"localhost" IDENTIFIED BY "VlR1d1oiqrccMxid";
+GRANT USAGE ON *.* TO "jenkins_user"@"%" IDENTIFIED BY "VlR1d1oiqrccMxid";
+GRANT ALL PRIVILEGES ON `api_jenkins`.* TO 'jenkins_user'@'%';
+GRANT ALL PRIVILEGES ON `api_jenkins`.* TO 'jenkins_user'@'localhost';
+*/
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

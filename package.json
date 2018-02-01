@@ -1,7 +1,7 @@
 {
-  "name": "just-api",
+  "name": "api_jenkins",
   "version": "0.0.1",
-  "description": "Sujet 3",
+  "description": "tp la poste jenkins Nicolas Moricet",
   "main": "index.js",
   "scripts": {
     "start": "node app.js"
@@ -16,19 +16,16 @@
     "node",
     "js"
   ],
-  "author": "Nous",
+  "author": "groupe 4 A3dev",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/MarieLBernard44/just_api/issues"
+    "url": "https://github.com/nicoHersant/tp_jenkins_g4/issues"
   },
-  "homepage": "https://github.com/MarieLBernard44/just_api#readme",
+  "homepage": "https://github.com/nicoHersant/tp_jenkins_g4/#readme",
   "dependencies": {
     "bluebird": "^3.5.1",
     "body-parser": "^1.18.2",
-    "cookie-parser": "^1.4.3",
     "express": "^4.16.2",
-    "json2csv": "^3.11.5",
-    "jsonwebtoken": "^8.1.0",
     "mysql": "^2.15.0",
     "pug": "^2.0.0-rc.4"
   }

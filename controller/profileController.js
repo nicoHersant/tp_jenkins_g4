@@ -9,14 +9,12 @@ class ProfileController {
     constructor() {
         this.profileRepository = new ProfileRepository();
     }
-
     findSuccess(res) {
         return (result) => {
             res.status(200); // Found
             res.json(result);
         }
     }
-
     findError(res) {
         return (error) => {
             console.log(error);
@@ -24,10 +22,6 @@ class ProfileController {
             res.json(error.message);
         }
     }
-
-     /* Finds all entities.
-     * @return all entities
-     */
     getProfilesList(res) {
         this.profileRepository.getProfilesList()
             .then(this.findSuccess(res))
