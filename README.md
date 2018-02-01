@@ -69,8 +69,8 @@ Ci dessous, les routes de l’application web :
 | VERBES      | URL                     | ACTION                                                                |
 |-------------|-------------------------|-----------------------------------------------------------------------|
 | GET         |    /                    | Affiche l’interface de l’application web.                             |
-| POST        |    /                    | Génère le token d’authentification et créé un cookie pour le contenir.|
-| POST        |    /download/:activity  | Permet de télécharger une liste de profils par activité.              |
+| GET         |    /new                 | Permet l'enregistrement d'une livraison                            |
+
 
 Ci dessous, les url utilisées par notre API
 

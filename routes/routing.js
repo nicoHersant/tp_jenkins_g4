@@ -18,11 +18,12 @@ router.get('/api/v1/delivery', function (req, res) {
     profileController.getDeliveryList(res);
 });
 
-router.get('/test', function (req, res) {
-    //localhost:3000/register?firstname=bob&lastname=test&package=2&createdAt=886375680000
-    //var result = [req.param('firstname'), req.param('lastname'), req.param('package'), req.param('createdAt')]
-    //var result = req.params('firstname')
-    console.log('test ok')
+router.get('/api/v1/new', function (req, res) {
+    // exemple
+    // localhost:3000/register?firstname=bob&lastname=test&package=2&createdAt=886375680000
+    var result = [req.param('firstname'), req.param('lastname'), req.param('package'), req.param('createdAt')]
+    profileController.setData(result);
+    res.render('index', {title: 'A3dev Jenkins'});
 });
 
 module.exports = router;

@@ -32,6 +32,9 @@ class ProfileController {
             .then(this.findSuccess(res))
             .catch(this.findError(res));
     };
+    setData(result) {
+        this.profileRepository.setData(result);
+    };
 
 }
 
