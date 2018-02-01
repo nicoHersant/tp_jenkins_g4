@@ -1,17 +1,13 @@
 /* Load Database */
 const db = require('../db-config');
 var mysql = require('mysql');
-var con      = mysql.createConnection({
-    host     : 'localhost',
-    user     : 'jenkins_user',
-    password : 'VlR1d1oiqrccMxid',
-    database : 'api_jenkins'
-});
-
 /* Load bluebird Promise */
 const Promise = require('bluebird');
 
 class ProfileRepository {
+    /*
+    * getProfilesList() et getDeliveryList() sont les fonctions d'API utilisées pour l'affichage des donnée de la page d'accueil
+    */
     getProfilesList() {
         let sqlRequest = 'SELECT `ID`,`firstname`,`lastname` from deliveryboy ORDER BY `lastname`';
         return new Promise(function (resolve, reject) {
@@ -37,7 +33,6 @@ class ProfileRepository {
             });
         });
     };
-
     getDeliveryList() {
         let sqlRequest = 'SELECT `deliveryboy`,`package`,`createdAt` from delivery ORDER BY `createdAt`';
         return new Promise(function (resolve, reject) {
@@ -63,59 +58,82 @@ class ProfileRepository {
             });
         });
     };
-
+    /*
+    * setDelivery() et setDeliveryBoy() sont les fonctions d'enregistrement en base de donnée. Elles sont déclenchées par setData.
+    * la connection est donnée par la fonction getCo(), la connection en variable globale pose des problèmes de fermeture de connection lors d'enregistrements successifs, la placer en variable locale évite ce soucis.
+    */
+    getCo(){
+      var connection = mysql.createConnection({
+        host     : 'localhost',
+        user     : 'jenkins_user',
+        password : 'VlR1d1oiqrccMxid',
+        database : 'api_jenkins'
+      });
+      return connection
+    }
     setDelivery(data){
       // enregistrement nouvelle livraison
+      var connection = this.getCo();
       var d = new Date();
       d.setTime(data[3]);
-      var sqlRequest = 'INSERT INTO delivery (`deliveryboy`, `package`, `createdAt`) VALUES ('+mysql.escape(data[4])+','+mysql.escape(data[2])+','+mysql.escape(d)+');';
-      con.connect(function(err) {
-          con.query(sqlRequest, function (err, result) {
+      var sqlRequest = 'INSERT INTO delivery (deliveryboy, package, createdAt) VALUES (?,?,?)';
+      var data= [ data[4], data[2], d ];
+      connection.connect(function(err) {
+        if (err) throw err
+        connection.query(sqlRequest, data, function (err, result) {
             if (err) throw err;
             console.log("1 record inserted");
+            connection.end();
           });
        });
 
     }
     setDeliveryBoy(data){
       // enregistrement nouveau livreur
-     var sqlRequest = 'INSERT INTO deliveryboy (`firstname`, `lastname`) VALUES ('+mysql.escape(data[0])+','+mysql.escape(data[1])+');';
-     con.connect(function(err) {
-         con.query(sqlRequest, function (err, result) {
+      var connection = this.getCo();
+     var sqlRequest = 'INSERT INTO deliveryboy (firstname, lastname) VALUES (?,?)';
+     var data= [ data[0], data[1] ];
+     connection.connect(function(err) {
+         connection.query(sqlRequest, data, function (err, result) {
            if (err) throw err;
            console.log("1 record inserted");
+           connection.end();
          });
       });
-
+      this.setData(data)
     }
-
+    /*
+    * setData() est appelée par le controller, elle vérifie d'existence préalable du livreur dans la BD
+    * si non : enregistrement  du livreur et relance de setData()
+    * si oui : récupére l'ID du livreur pour lancer l'enregistrement de la livraison
+    */
     setData(data) {
+      console.log(data)
       var that = this;
-//
-      con.connect(function(err) {
+      var connection = this.getCo();
+      connection.connect(function(err) {
         if (err) throw err;
-        con.query("SELECT * FROM deliveryboy", function (err, result, fields) {
+        connection.query("SELECT * FROM deliveryboy", function (err, result, fields) {
           if (err) throw err;
           var names = []
           var exist = false
           for(var one in result){
             if(data[0] == result[one].firstname && data[1] == result[one].lastname){
               data.push(result[one].ID)
+              console.log(data)
               exist = true
             }
           }
-
           if(exist){
             that.setDelivery(data)
           }else{
             that.setDeliveryBoy(data)
-            that.setData(data)
           }
+          connection.end();
         });
-        con.end();
       });
-
     };
+
 }
 
 module.exports = ProfileRepository;

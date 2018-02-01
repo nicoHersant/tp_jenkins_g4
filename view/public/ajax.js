@@ -1,7 +1,9 @@
+// routes d'API
 var urlname = 'http://localhost:3000/api/v1/name'
 var urllist = 'http://localhost:3000/api/v1/delivery'
 
 getProfil()
+// récupére les livreurs existant pour remplir le select
 function getProfil(){
   $.get(urlname, function (data) {
     var option = document.createElement('option');
@@ -15,7 +17,7 @@ function getProfil(){
     })
   })
 }
-
+// récupére les livraisons existantes pour remplir le tableau
 function getDelivery(name){
   var info = name.split(" ");
   var result = [info[1], info[2]]
@@ -36,10 +38,7 @@ function getDelivery(name){
               td2.append(info[2])
               td3.append(item.package)
               td4.append(time)
-              tr.append(td1)
-              tr.append(td2)
-              tr.append(td3)
-              tr.append(td4)
+              tr.append(td1, td2, td3, td4)
               $("#tabody").append(tr);
             }
         }
@@ -52,7 +51,7 @@ function show(info){
   info = info.slice(2)
   var nb = info.length;
   var sec = info[nb-1]-info[0]
-  var time = sec/60/60
+  var time = sec/60000
   var result = Math.round(time/nb)
   $("#result").empty();
   $("#result").append("Le livreur " + name + " livre un coli toutes les "+ result +" minutes.")
