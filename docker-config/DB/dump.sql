@@ -38,7 +38,7 @@ CREATE TABLE IF NOT EXISTS `deliveryboy` (
 INSERT INTO `deliveryboy` (`ID`, `firstname`, `lastname`) VALUES
 (1, 'Loic', 'Arif'),
 (2, 'Clem', 'Tournery'),
-(3, '3'),
+(3, 'Antoine', "Bohssain"),
 (4, 'Silvano', 'Costanzo'),
 (5, 'Pierre', 'LePage'),
 (6, 'Dylan', 'Gosselin'),
