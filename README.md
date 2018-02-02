@@ -20,7 +20,7 @@ Démarrage :
 npm start
 ```
 
-Accès à l'API sur l'url : `http://localhost:3000`
+Accès à l'API sur l'url : `http://10.1.4.28:3000`
 
 
 # Urls de l'API
@@ -34,7 +34,7 @@ Ci dessous, les routes de l’application web :
 
 ## Attention, les requêtes http d'enregistrement doivent être au format suivant :
 ```
-http://localhost:3000/pi/v1/new?firstname=john&lastname=snow&package=2&createdAt=886375680000
+http://10.1.4.28:3000/pi/v1/new?firstname=john&lastname=snow&package=2&createdAt=886375680000
 ```
 
 Ci dessous, les url utilisées par notre API
