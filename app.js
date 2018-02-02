@@ -21,7 +21,7 @@ const allowCrossDomain = function (req, res, next) {
 };
 */
 /* Router configuration */
-app.use(allowCrossDomain);
+//app.use(allowCrossDomain);
 app.use(require('./routes/routing'));
 
 /* Rendering configuration */
