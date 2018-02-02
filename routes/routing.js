@@ -24,7 +24,7 @@ router.get('/api/v1/delivery', function (req, res) {
 // enregistrement d'une nouvelle livraison
 router.get('/api/v1/new', function (req, res) {
     // exemple
-    // localhost:3000/register?firstname=bob&lastname=test&package=2&createdAt=886375680000
+    // localhost:3000/api/v1/new?firstname=bob&lastname=test&package=2&createdAt=886375680000
     var result = [req.param('firstname'), req.param('lastname'), req.param('package'), req.param('createdAt')]
     profileController.setData(result);
     res.render('done', {title: 'A3dev Jenkins'});
