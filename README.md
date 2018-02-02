@@ -41,7 +41,7 @@ Ci dessous, les url utilisées par notre API
 
 | VERBES      | URL                     | ACTION                                                                |
 |-------------|-------------------------|-----------------------------------------------------------------------|
-| GET         |    /api/v1/name         | Renvoie l’ensemble des nom des livreurs.                              |
+| GET         |    /api/v1/name         | Renvoie l’ensemble des noms des livreurs.                              |
 | GET         |    /api/v1/delivery     | Renvoie les livraisons filtrées par livreurs.                         |
 
 
