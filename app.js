@@ -12,13 +12,14 @@ app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
 
 /* Authorize external access */
+/*
 const allowCrossDomain = function (req, res, next) {
     res.header('Access-Control-Allow-Origin', "http://10.1.4.28:3000/");
     res.header('Access-Control-Allow-Methods', 'GET,POST');
     res.header('Access-Control-Allow-Headers', 'Content-Type');
     next();
 };
-
+*/
 /* Router configuration */
 app.use(allowCrossDomain);
 app.use(require('./routes/routing'));
