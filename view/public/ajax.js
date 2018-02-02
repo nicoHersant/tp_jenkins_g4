@@ -1,6 +1,6 @@
 // routes d'API
-var urlname = 'http://localhost:3000/api/v1/name'
-var urllist = 'http://localhost:3000/api/v1/delivery'
+var urlname = 'http://10.1.4.28:3000/api/v1/name'
+var urllist = 'http://10.1.4.28:3000/api/v1/delivery'
 
 getProfil()
 // récupére les livreurs existant pour remplir le select

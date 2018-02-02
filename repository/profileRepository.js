@@ -66,7 +66,7 @@ class ProfileRepository {
     */
     getCo(){
       var connection = mysql.createConnection({
-        host     : 'localhost',
+        host     : '10.1.4.28',
         user     : 'jenkins_user',
         password : 'VlR1d1oiqrccMxid',
         database : 'api_jenkins'
